@@ -56,10 +56,11 @@ angular.module('cloudifyWriteYourOwnUiDemoApp')
             $scope.workflow.success = null;
             try{
                 cloudifyClient.executions.start(deploymentId, $scope.workflow.name, JSON.parse($scope.workflow.parameters), null, null, function(err, response, body){
-                    $scope.currentExecution = body;
+
                     if ( !!body.error_code){
                         $scope.workflow.error = body.message;
                     }else{
+                        $scope.currentExecution = body;
                         $scope.workflow.success = body;
                     }
                 });

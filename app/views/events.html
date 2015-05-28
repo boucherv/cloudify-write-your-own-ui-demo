@@ -1,9 +1,22 @@
 <h1> Events & Logs </h1>
 
-<div>
+<div ng-show="!events" style="margin-top:100px;">
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            <span class="sr-only">Loading</span>
+        </div>
+    </div>
+    <div style="font-size:30px; text-align:center;">Loading</div>
+</div>
+
+<div ng-show="events">
+<div ng-show="execution">
     Showing logs and events for <code>{{execution.workflow_id}}</code> on <code>
     <a href="#/deployment/{{execution.deployment_id}}">{{execution.deployment_id}}</a>
     [<a href="#/blueprint/{{execution.blueprint_id}}">{{execution.blueprint_id}}</a>]</code>
+</div>
+<div ng-show="!execution">
+    Showing events for entire system
 </div>
 
 
@@ -11,3 +24,7 @@
 <pre style="background:black; color:white">
     <div ng-repeat="e in events"> {{e._source.message.text}} </div>
 </pre>
+</div>
+
+
+
