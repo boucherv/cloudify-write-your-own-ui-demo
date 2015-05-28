@@ -1,0 +1,51 @@
+// bower:scss
+// endbower
+
+.demo-info{
+    margin-top:10px;
+    .demo-label{
+        background-color:#CECECE;
+        font-weight: bold;
+    }
+}
+
+.deployment-list-id{
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.deployment-list-blueprint-name{
+    display:inline-block;
+    width:100px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    vertical-align: middle;
+}
+
+.deployment-list-execution{
+    display:inline-block;
+    text-align:right;
+    width:200px;
+    color:#ABABAB;
+    white-space:nowrap;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+
+    &.bs-callout-info {
+        border-left-color: #1b809e;
+    }
+}
+

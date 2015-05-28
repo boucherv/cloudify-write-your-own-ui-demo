@@ -1,0 +1,13 @@
+<h1> Events & Logs </h1>
+
+<div>
+    Showing logs and events for <code>{{execution.workflow_id}}</code> on <code>
+    <a href="#/deployment/{{execution.deployment_id}}">{{execution.deployment_id}}</a>
+    [<a href="#/blueprint/{{execution.blueprint_id}}">{{execution.blueprint_id}}</a>]</code>
+</div>
+
+
+
+<pre style="background:black; color:white">
+    <div ng-repeat="e in events"> {{e._source.message.text}} </div>
+</pre>

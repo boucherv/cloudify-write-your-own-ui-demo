@@ -1,0 +1,9 @@
+<h1> Deployments </h1>
+<ul>
+    <li ng-repeat="d in deployments">
+        <a class="deployment-list-id" href="#/deployment/{{d.id}}">{{d.id}}</a>
+        <span class="deployment-list-blueprint-name">[<a href="#/blueprint/{{d.blueprint_id}}">{{d.blueprint_id}}</a>]</span>
+        <span class="deployment-list-execution" ng-show="d.current_execution">Running {{d.current_execution.workflow_id}}...</span>
+        <span class="deployment-list-execution" ng-show="!d.current_execution">idle</span>
+    </li>
+</ul>
