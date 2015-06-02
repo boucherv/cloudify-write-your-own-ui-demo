@@ -13,13 +13,13 @@ describe('Directive: activeSection', function () {
   }));
 
   var setup = inject(function( $compile ){
-    element = angular.element('<active-section></active-section>');
+    element = angular.element('<div active-section>hello world</div>');
     element = $compile(element)(scope);
     scope.$digest();
   });
 
   it('should make hidden element visible', inject(function () {
     setup();
-    expect(element.text()).toBe('this is the activeSection directive');
+    expect(element.text()).toBe('hello world');
   }));
 });

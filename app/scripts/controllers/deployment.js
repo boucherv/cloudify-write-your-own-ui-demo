@@ -26,7 +26,9 @@ angular.module('cloudifyWriteYourOwnUiDemoApp')
 
         $scope.workflow = {};
         cloudifyClient.deployments.get(deploymentId, null, function( err, response, body ){
-            $scope.deployment = JSON.parse(body);
+            try {
+                $scope.deployment = JSON.parse(body);
+            }catch(e){}
         });
 
         cloudifyClient.executions.list(deploymentId, 'id,status,blueprint_id,deployment_id,workflow_id', function(err, response,body){
@@ -68,6 +70,6 @@ angular.module('cloudifyWriteYourOwnUiDemoApp')
                 $scope.workflow.error = 'JSON is invalid : ' + e.message;
             }
 
-        }
+        };
 
   });

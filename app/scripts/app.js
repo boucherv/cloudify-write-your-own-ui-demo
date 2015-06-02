@@ -15,7 +15,6 @@ angular
         'ngResource',
         'ngRoute',
         'ngSanitize',
-        'ngTouch',
         'cloudifyjs'
     ])
     .config(function ($routeProvider) {

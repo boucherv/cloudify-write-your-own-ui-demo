@@ -10,7 +10,7 @@ angular.module('cloudifyWriteYourOwnUiDemoApp')
   .directive('activeSection', function ( $location, $log, $timeout, $rootScope ) {
     return {
       restrict: 'A',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element/*, attrs*/) {
           function updateActiveSection() {
               element.find('li').removeClass('active');
               element.find('a[ng-href*="' + $location.path() + '"]').parent().addClass('active');

@@ -9,16 +9,14 @@
  */
 angular.module('cloudifyWriteYourOwnUiDemoApp')
 
-    .controller('EventsCtrl', function ($scope, cloudifyClient, $location, $timeout ) {
+    .controller('EventsCtrl', function ($scope, cloudifyClient, $location ) {
         var executionId = $location.search().execution;
         if ( !executionId ){
             executionId = null;
         }
 
         cloudifyClient.events.get( executionId, 0, 5000, true, function(err, response,body){
-            //$timeout(function(){
                 $scope.events = body.events;
-            //},3000);
         });
 
         if ( executionId ) {

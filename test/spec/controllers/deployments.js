@@ -2,21 +2,21 @@
 
 describe('Controller: deploymentsCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('cloudifyWriteYourOwnUiDemoApp'));
+    // load the controller's module
+    beforeEach(module('cloudifyWriteYourOwnUiDemoApp'));
 
-  var deploymentsCtrl,
-    scope;
+    var deploymentsCtrl,
+        scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    deploymentsCtrl = $controller('deploymentsCtrl', {
-      $scope: scope
-    });
-  }));
+    // Initialize the controller and a mock scope
+    beforeEach(inject(function ($controller, $rootScope) {
+        scope = $rootScope.$new();
+        deploymentsCtrl = $controller('DeploymentsCtrl', {
+            $scope: scope
+        });
+    }));
 
-  it('should attach a list of awesomeThings to the scope', inject(function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  }));
+    it('should exist', inject(function () {
+        expect(!!deploymentsCtrl).toBe(true);
+    }));
 });

@@ -91,8 +91,8 @@ module.exports = function (grunt) {
                 proxies: [
                     {
                         context: '/cloudify',
-                        host: '10.10.1.10',
-                        port: 80,
+                        host: process.env.CLOUDIFY_IP || '10.10.1.10',
+                        port: process.env.CLOUDIFY_PORT || 80,
                         https: false,
                         xforward: false,
                         rewrite: {
@@ -188,31 +188,18 @@ module.exports = function (grunt) {
         },
 
         // Compiles Sass to CSS and generates necessary files if requested
-        compass: {
-            options: {
-                sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
-                generatedImagesDir: '.tmp/images/generated',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: './bower_components',
-                httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
-                httpFontsPath: '/styles/fonts',
-                relativeAssets: false,
-                assetCacheBuster: false,
-                raw: 'Sass::Script::Number.precision = 10\n'
-            },
+        sass: {
+
             dist: {
-                options: {
-                    generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+                files: {
+                    '.tmp/styles/main.css' : '<%= yeoman.app %>/styles/main.scss'
                 }
             },
             server: {
-                options: {
-                    debugInfo: true
+                files: {
+                    '.tmp/styles/main.css' : '<%= yeoman.app %>/styles/main.scss'
                 }
+
             }
         },
 
@@ -449,6 +436,7 @@ module.exports = function (grunt) {
         'htmlmin'
     ]);
 
+    grunt.registerTask('compass' , ['sass']);
     grunt.registerTask('default', [
         'newer:jshint',
         'test',

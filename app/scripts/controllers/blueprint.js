@@ -42,5 +42,5 @@ angular.module('cloudifyWriteYourOwnUiDemoApp')
             }catch(e){
                 $scope.deploy.error = 'inputs is not a valid json ' + e.message;
             }
-        }
+        };
     });
